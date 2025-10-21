@@ -1,0 +1,1071 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Software Engineering Week 3 Assignment</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Montserrat:wght@400;700&display=swap"
+        rel="stylesheet" />
+    <style>
+        body {
+            font-family: "Roboto", sans-serif;
+            line-height: 1.8;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 20%, #f093fb 40%, #f5576c 60%, #4facfe 80%, #00f2fe 100%);
+            background-attachment: fixed;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 20%, #2c3e50 40%, #34495e 60%, #2c3e50 80%, #34495e 100%);
+            color: #e0e0e0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.9) 0%, rgba(118, 75, 162, 0.9) 100%);
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+            color: #fff;
+            padding: 4rem 2rem;
+            text-align: center;
+            border-bottom-left-radius: 15px;
+            border-bottom-right-radius: 15px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode header {
+            background: linear-gradient(135deg, rgba(44, 62, 80, 0.9) 0%, rgba(52, 73, 94, 0.9) 100%);
+        }
+
+        header h1 {
+            font-family: "Montserrat", sans-serif;
+            font-size: 3.5rem;
+            /* Slightly larger */
+            margin: 0;
+            letter-spacing: 1px;
+        }
+
+        header p {
+            font-size: 1.3rem;
+            /* Slightly larger */
+            margin: 0.7rem 0;
+            font-weight: 300;
+        }
+
+        nav {
+            position: sticky;
+            top: 0;
+            background: rgba(255, 255, 255, 0.95);
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode nav {
+            background: rgba(44, 62, 80, 0.95);
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        nav ul li a {
+            color: #555;
+            text-decoration: none;
+            padding: 0.8rem 1.8rem;
+            /* More padding */
+            font-weight: 700;
+            transition: color 0.3s, background-color 0.3s;
+            /* Add background transition */
+            border-radius: 5px;
+        }
+
+        nav ul li a:hover {
+            color: #fff;
+            background-color: #667eea;
+            /* Highlight on hover */
+        }
+
+        section {
+            background: rgba(255, 255, 255, 0.95);
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+            margin: 2.5rem 0;
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode section {
+            background: rgba(52, 73, 94, 0.95);
+            color: #e0e0e0;
+        }
+
+        h2,
+        h3 {
+            font-family: "Montserrat", sans-serif;
+            color: #667eea;
+            border-bottom: 3px solid #764ba2;
+            padding-bottom: 0.7rem;
+            margin-bottom: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode h2,
+        body.dark-mode h3 {
+            color: #f093fb;
+            border-bottom-color: #4facfe;
+        }
+
+        h4 {
+            /* Added style for h4 */
+            font-family: "Montserrat", sans-serif;
+            color: #667eea;
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2.5rem 0;
+            /* More vertical spacing */
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            /* Subtle table shadow */
+            border-radius: 8px;
+            overflow: hidden;
+            /* Ensures rounded corners apply to table content */
+        }
+
+        th,
+        td {
+            padding: 1.2rem;
+            /* More padding */
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+
+        th {
+            background-color: #eef2f7;
+            /* Lighter background for headers */
+            font-weight: 700;
+            color: #444;
+        }
+
+        tr:nth-child(even) {
+            /* Zebra striping for table rows */
+            background-color: #f8f9fa;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            margin: 2rem auto;
+            display: block;
+            transition: all 0.3s ease;
+            loading: lazy; /* Lazy loading for better performance */
+        }
+
+        img:hover {
+            transform: scale(1.02);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        body.dark-mode img {
+            filter: brightness(0.9) contrast(1.1);
+        }
+
+        .code {
+            background-color: #282c34;
+            /* Darker background for code */
+            color: #abb2bf;
+            padding: 1.8rem;
+            /* More padding */
+            margin: 2rem 0;
+            /* More vertical spacing */
+            border-radius: 10px;
+            font-family: "Fira Code", monospace;
+            /* A common coding font */
+            overflow-x: auto;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 2.5rem;
+            /* More padding */
+            margin-top: 3rem;
+            /* More margin */
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+        }
+
+        /* Enhanced responsive adjustments */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.5rem;
+            }
+
+            header p {
+                font-size: 1rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav ul li {
+                margin: 0.5rem 0;
+            }
+
+            section,
+            article {
+                margin: 1.5rem 0;
+                padding: 1.5rem;
+            }
+
+            h2,
+            h3 {
+                font-size: 1.8rem;
+                margin-bottom: 1rem;
+            }
+
+            th,
+            td {
+                padding: 0.8rem;
+                font-size: 0.9rem;
+            }
+
+            .present-button {
+                top: 10px;
+                right: 10px;
+                padding: 12px 20px;
+                font-size: 1rem;
+            }
+
+            .theme-toggle {
+                top: 10px;
+                left: 10px;
+                padding: 12px;
+                font-size: 1rem;
+            }
+
+            .timing-indicator {
+                bottom: 10px;
+                left: 10px;
+                padding: 8px 12px;
+                font-size: 0.8rem;
+            }
+
+            img {
+                max-width: 90%;
+                margin: 1rem auto;
+            }
+
+            .code {
+                padding: 1rem;
+                font-size: 0.85rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 2rem;
+            }
+
+            header p {
+                font-size: 0.9rem;
+            }
+
+            section {
+                padding: 1rem;
+                margin: 1rem 0;
+            }
+
+            .present-button,
+            .theme-toggle {
+                padding: 10px;
+                font-size: 0.9rem;
+            }
+
+            .present-button {
+                right: 10px;
+            }
+
+            .theme-toggle {
+                left: 10px;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400&display=swap" rel="stylesheet" />
+    <!-- Google Gemini AI Text-to-Speech integration -->
+    <script type="module">
+        import { GoogleGenerativeAI } from 'https://esm.run/@google/generative-ai';
+
+        // Make GoogleGenerativeAI available globally
+        window.GoogleGenerativeAI = GoogleGenerativeAI;
+    </script>
+    <script src="env-loader.js"></script>
+    <style>
+        .present-button {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+            z-index: 1001;
+            transition: all 0.3s ease;
+            animation: pulse 2s infinite;
+        }
+        .present-button:hover {
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+        }
+        .present-button:active {
+            transform: translateY(0) scale(0.98);
+        }
+        @keyframes pulse {
+            0% { box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4); }
+            50% { box-shadow: 0 4px 20px rgba(102, 126, 234, 0.7); }
+            100% { box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4); }
+        }
+        .presentation-mode {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(240, 147, 251, 0.1) 100%) !important;
+        }
+        .presentation-mode section {
+            animation: slideIn 0.8s ease-out;
+        }
+        .presentation-mode section.active {
+            animation: highlight 1s ease-out;
+        }
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(20px) scale(0.95); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+        @keyframes highlight {
+            0% { box-shadow: 0 0 0 0 rgba(102, 126, 234, 0.7); }
+            50% { box-shadow: 0 0 0 10px rgba(102, 126, 234, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(102, 126, 234, 0); }
+        }
+        .voice-note {
+            font-style: italic;
+            color: #666;
+            font-size: 0.9rem;
+            margin: 10px 0;
+            padding: 8px;
+            background-color: #f8f9fa;
+            border-left: 3px solid #667eea;
+        }
+        .timing-indicator {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+            color: white;
+            padding: 10px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            z-index: 1001;
+            transition: all 0.3s ease;
+        }
+        .theme-toggle {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+            color: #333;
+            border: none;
+            padding: 15px;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            z-index: 1001;
+            transition: all 0.3s ease;
+        }
+        .theme-toggle:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+        body.dark-mode .theme-toggle {
+            background: rgba(52, 73, 94, 0.9);
+            color: #e0e0e0;
+        }
+    </style>
+</head>
+
+<body>
+    <header id="title-page">
+        <div class="container">
+            <h1>AI Software Engineering Week 3 Assignment</h1>
+            <p>Author: George Wanjohi</p>
+            <p>
+                Objective: To implement and deploy machine learning models for digit
+                classification, sentiment analysis, and ethical AI considerations.
+            </p>
+        </div>
+    </header>
+
+    <nav id="table-of-contents">
+        <ul>
+            <li><a href="#part1">Theory</a></li>
+            <li><a href="#part2">Practical</a></li>
+            <li><a href="#part3">Ethics & Optimization</a></li>
+            <li><a href="#bonus">Deployment</a></li>
+            <li><a href="#conclusion">Conclusion</a></li>
+            <li><a href="#appendix">Appendix</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <section id="part1">
+            <h2>Part 1 — Theory</h2>
+            <article>
+                <h3>Q1: TensorFlow vs PyTorch</h3>
+                <p><strong>TensorFlow vs PyTorch — key differences</strong></p>
+                <ul>
+                    <li>
+                        <strong>Execution model:</strong> PyTorch uses dynamic (eager)
+                        execution which is Pythonic and easy to debug. TensorFlow
+                        historically used static graphs but TensorFlow 2.x defaults to
+                        eager execution and is closer to PyTorch.
+                    </li>
+                    <li>
+                        <strong>Use cases:</strong> PyTorch is commonly used for research
+                        and fast prototyping due to its intuitive API. TensorFlow is
+                        well-suited for production and deployment (TF Serving, TF Lite, TF
+                        Hub).
+                    </li>
+                    <li>
+                        <strong>Ecosystem & tooling:</strong> TensorFlow has a broad
+                        production ecosystem; PyTorch has strong research adoption and
+                        growing production tools (TorchServe).
+                    </li>
+                    <li>
+                        <strong>Rule of thumb:</strong> choose PyTorch for
+                        experimentation/research; choose TensorFlow when you need mature
+                        production tooling or specific TF integrations.
+                    </li>
+                </ul>
+            </article>
+            <article>
+                <h3>Q2: Two use cases for Jupyter Notebooks</h3>
+                <ol>
+                    <li>
+                        <strong>Interactive prototyping and experiments:</strong> run
+                        small code blocks iteratively, inspect outputs and tweak models
+                        without running a full script.
+                    </li>
+                    <li>
+                        <strong>Reproducible reports and visualizations:</strong> combine
+                        narrative, code, plots, and results in one document for sharing
+                        and teaching.
+                    </li>
+                </ol>
+            </article>
+            <article>
+                <h3>Q3: How spaCy improves NLP vs basic string ops</h3>
+                <ul>
+                    <li>
+                        <strong>Tokenization & linguistics:</strong> spaCy provides
+                        robust, language-aware tokenization, POS tagging, and dependency
+                        parsing; basic string ops cannot reliably split or normalize text.
+                    </li>
+                    <li>
+                        <strong>Pretrained models & NER:</strong> spaCy includes
+                        pretrained pipelines for Named Entity Recognition (PRODUCT, ORG,
+                        PERSON), which work across varied text; string searches are
+                        brittle and miss variations.
+                    </li>
+                    <li>
+                        <strong>Pipeline & extensibility:</strong> spaCy offers matchers
+                        and rule-based add-ons (EntityRuler) to incorporate custom
+                        patterns without reinventing low-level parsing.
+                    </li>
+                </ul>
+            </article>
+            <article>
+                <h4>Comparative Table: Scikit-learn vs TensorFlow</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Facet</th>
+                            <th>Scikit-learn</th>
+                            <th>TensorFlow</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Target applications</td>
+                            <td>Classical ML: SVM, trees, clustering, preprocessing</td>
+                            <td>
+                                Deep learning: neural networks, CNNs, RNNs, production ML
+                                pipelines
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Ease for beginners</td>
+                            <td>Very beginner-friendly, consistent API</td>
+                            <td>
+                                Steeper learning curve (TF 2.x is easier), more concepts
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Community & Ecosystem</td>
+                            <td>Mature for classical ML; many utilities</td>
+                            <td>
+                                Massive (Google-backed), strong production tooling and
+                                model-serving options
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </article>
+        </section>
+
+        <section id="part2">
+            <h2>Part 2 — Practical</h2>
+            <article id="task1">
+                <h3>Task 1: Iris Flower Classification</h3>
+                <p>
+                    Description: The Iris dataset contains 150 samples of iris flowers
+                    with sepal and petal measurements. Preprocessing involves
+                    standardizing features for better model performance.
+                </p>
+                <h4>Critical Code Snippets</h4>
+                <div class="code">
+                    <pre><code># Preprocessing
+from sklearn.preprocessing import StandardScaler
+scaler = StandardScaler()
+X_scaled = scaler.fit_transform(X)
+
+# Training
+from sklearn.model_selection import train_test_split
+X_train, X_test, y_train, y_test = train_test_split(X_scaled, y, test_size=0.2, random_state=42)
+model.fit(X_train, y_train)</code></pre>
+                </div>
+                <h4>Classification Report Screenshot</h4>
+                <img src="iris_results.png" alt="Iris classification report" />
+            </article>
+            <article id="task2">
+                <h3>Task 2: MNIST Digit Recognition</h3>
+                <p>
+                    Description: CNN architecture includes Conv2D layers with ReLU,
+                    MaxPooling, Flatten, Dense layers with Dropout.
+                </p>
+                <p>
+                    Training details: 15 epochs, batch size 128, final test accuracy
+                    99.42% with data augmentation.
+                </p>
+                <h4>Training Accuracy/Loss Graph</h4>
+                <img src="training_accuracy.png" alt="MNIST training accuracy graph" />
+                <h4>5 Sample Predictions</h4>
+                <img src="sample_predictions.png" alt="MNIST sample predictions" />
+                <p>Saved model: practical/tensorflow/mnist_cnn_improved_model.h5</p>
+            </article>
+            <article id="task3">
+                <h3>Task 3: spaCy Sentiment and NER</h3>
+                <p>
+                    Description: Sample reviews from Amazon dataset processed with spaCy
+                    for named entity recognition and sentiment analysis.
+                </p>
+                <h4>Entity Extraction Table</h4>
+                <img src="spacy_entities.png" alt="spaCy entities table" />
+                <h4>Displacery NER Visualization</h4>
+                <img src="spacy_displacy.png" alt="spaCy NER visualization" />
+            </article>
+        </section>
+
+        <section id="part3">
+            <h2>Part 3 — Ethics & Optimization</h2>
+            <article>
+                <h3>Reflection on Bias & Debugging</h3>
+                <p>
+                    In MNIST, digit recognition may show bias towards Western-style
+                    handwriting, potentially misclassifying diverse scripts. Amazon
+                    reviews could contain biased sentiments due to demographic
+                    imbalances in review authors. Ethical considerations include
+                    ensuring fairness, transparency, and mitigating harm from biased
+                    predictions.
+                </p>
+                <p>
+                    Mitigations: Use TensorFlow Fairness Indicators for bias auditing,
+                    apply dataset augmentation for underrepresented data, implement
+                    better annotation rules, and conduct regular audits.
+                </p>
+
+                <h4>Debugging Section: Code Fix</h4>
+                <p>
+                    This section addresses a technical bug encountered during the Gradio
+                    app development.
+                </p>
+                <div class="code">
+                    <p>Buggy Code Snippet (from `app.py`):</p>
+                    <pre><code>image = tf.image.resize(image, (28, 28)) # Wrong: passes dict directly</code></pre>
+                    <p>Fixed Code Snippet (from `app.py`):</p>
+                    <pre><code>composite_image = image['composite'] # Properly extract image array
+# ... further processing ...</code></pre>
+                </div>
+                <p>
+                    Explanation: The original code attempted to directly resize the
+                    dictionary output from Gradio's Sketchpad component, leading to a
+                    `ValueError`. The fix involves correctly extracting the `composite`
+                    image array from the dictionary before performing TensorFlow's
+                    resize operation. This ensures the model receives a valid image
+                    tensor.
+                </p>
+                <img src="debug_fix_screenshot.png" alt="Screenshot showing corrected app behavior after code fix" />
+            </article>
+
+            <article>
+                <h3>Debugging for Bias: MNIST Model</h3>
+                <p>
+                    The MNIST dataset, while foundational, primarily represents a
+                    limited range of handwriting styles. This can lead to
+                    <strong>representation bias</strong>, where the model performs
+                    poorly on digits that deviate from its training distribution.
+                </p>
+                <p>
+                    For instance, an earlier version of our model (without augmentation)
+                    might misclassify a thinly drawn '1' as a '7', or a '4' with a
+                    closed top as a '9'. This is because it hadn't seen enough
+                    variations during training.
+                </p>
+                <h5>Example of Potential Bias (Challenging Input):</h5>
+                <p>
+                    Here, we illustrate a digit that our model, even with initial
+                    improvements, might struggle with due to subtle variations in
+                    handwriting. For instance, a **sketchy '9' was misclassified as a
+                    '7' with 98% accuracy**. This highlights how specific drawing styles
+                    can still fall outside the model's learned distribution.
+                </p>
+                <img src="biased_drawing_example.png" alt="Hand-drawn sketchy '9' misclassified as '7'" />
+                <p>
+                    <em>(This sketchy '9' was predicted as '7' with 98% confidence.)</em>
+                </p>
+                <h5>Mitigation through Data Augmentation:</h5>
+                <p>
+                    To address such issues and improve robustness, we implemented
+                    extensive <strong>data augmentation</strong> in our
+                    `mnist_cnn.ipynb` notebook. Techniques like random rotations,
+                    shifts, and zooms artificially expand the training dataset, exposing
+                    the model to a wider variety of digit appearances, including more
+                    "sketchy" or unusual styles.
+                </p>
+                <p>
+                    This makes the model more robust and less prone to
+                    misclassifications based on minor stylistic differences, by
+                    effectively teaching it to generalize better across diverse inputs.
+                </p>
+                <h5>Result with Further Improved Model (Conceptual):</h5>
+                <p>
+                    While our current model already includes augmentation, continuous
+                    improvement would involve refining these techniques or adding more
+                    diverse real-world examples. A further improved model would
+                    correctly classify this sketchy '9' as '9'.
+                </p>
+                <img src="mitigated_drawing_example.png"
+                    alt="Hand-drawn sketchy '9' with correct prediction from a hypothetically further improved model" />
+                <p>
+                    This demonstrates how proactive data strategies can debug and
+                    mitigate biases, leading to a more fair and reliable AI system.
+                </p>
+            </article>
+        </section>
+
+        <section id="bonus">
+            <h2>Bonus — Deployment</h2>
+            <article>
+                <p>
+                    To run mnist_app_gradio.py: Navigate to bonus/ and execute python
+                    app.py. The Gradio interface launches at http://127.0.0.1:7860 for
+                    live digit classification.
+                </p>
+                <img src="gradio_demo.png" alt="Gradio app demo" />
+            </article>
+        </section>
+
+        <section id="conclusion">
+            <h2>Conclusion</h2>
+            <ul>
+                <li>
+                    Learned the importance of data preprocessing and ethical
+                    considerations.
+                </li>
+                <li>
+                    Next steps: Implement multi-digit segmentation and deploy online.
+                </li>
+            </ul>
+        </section>
+    </div>
+
+    <button class="theme-toggle" onclick="toggleDarkMode()" title="Toggle Dark Mode">🌙</button>
+    <button class="present-button" onclick="startPresentation()">🎤 Start Presentation</button>
+    <div class="timing-indicator" id="timingIndicator" style="display: none;">
+        Time: <span id="currentTime">0:00</span> / 5:00
+    </div>
+
+    <!-- Hidden instructions for presentation -->
+    <div style="display: none;" id="presentationInstructions">
+        <p>This presentation will automatically advance through sections using Google Cloud Text-to-Speech for natural human-like voice narration.</p>
+        <p>Each section includes detailed explanations of the AI Software Engineering Week 3 Assignment components.</p>
+        <p>The presentation covers: Theory (TensorFlow vs PyTorch, Jupyter Notebooks, spaCy), Practical implementations (Iris classification, MNIST CNN, spaCy NLP), Ethics & Optimization (bias mitigation, debugging), and Deployment (Gradio app).</p>
+        <p>To use Gemini AI TTS: 1) Get a Gemini API key from Google AI Studio, 2) Add it to env.json or use URL parameters, 3) The presentation will use natural AI-generated voice.</p>
+    </div>
+
+    <script>
+        // Environment variables are now loaded by env-loader.js
+        // No additional loading needed here
+
+        let presentationActive = false;
+        let startTime = 0;
+        let timerInterval;
+        let currentSection = 0;
+        let speechSynthesis = window.speechSynthesis;
+        let presentationSections = [
+            {
+                element: '#title-page',
+                voiceScript: "Welcome to the AI Software Engineering Week 3 Assignment presentation. This project demonstrates machine learning models for digit classification, sentiment analysis, and ethical AI considerations.",
+                duration: 30000 // 30 seconds
+            },
+            {
+                element: '#part1',
+                voiceScript: "Part 1 covers the theoretical foundations. First, TensorFlow versus PyTorch: PyTorch uses dynamic eager execution which is Pythonic and easy to debug, while TensorFlow 2.x also defaults to eager execution and is closer to PyTorch. PyTorch is commonly used for research and fast prototyping due to its intuitive API, whereas TensorFlow is well-suited for production and deployment with TF Serving, TF Lite, and TF Hub. The rule of thumb is to choose PyTorch for experimentation and research, and TensorFlow when you need mature production tooling or specific TensorFlow integrations.",
+                duration: 45000 // 45 seconds
+            },
+            {
+                element: '#part2',
+                voiceScript: "Part 2 demonstrates the practical implementation. Task 1: Iris Flower Classification used a Decision Tree classifier on the Iris dataset after standardizing features. Task 2: MNIST Digit Recognition implemented a CNN with data augmentation and dropout, achieving 99.42% accuracy. Task 3: spaCy Sentiment and NER extracted entities and analyzed sentiment from Amazon reviews.",
+                duration: 60000 // 60 seconds
+            },
+            {
+                element: '#part3',
+                voiceScript: "Part 3 addresses ethics and optimization. We identified representation bias in MNIST and lexical bias in sentiment analysis. Mitigations include TensorFlow Fairness Indicators for bias auditing, dataset augmentation for underrepresented data, better annotation rules, and regular audits. We also debugged a technical issue in the Gradio app where we fixed a ValueError by properly extracting the composite image array from the dictionary before TensorFlow processing.",
+                duration: 60000 // 60 seconds
+            },
+            {
+                element: '#bonus',
+                voiceScript: "The bonus deployment uses Gradio to create a live digit classifier. Navigate to the bonus folder and run python app.py to launch the interface at http://127.0.0.1:7860 for live digit classification.",
+                duration: 20000 // 20 seconds
+            },
+            {
+                element: '#conclusion',
+                voiceScript: "In conclusion, this project demonstrated the importance of data preprocessing and ethical considerations in AI. Key learnings include the value of data augmentation for model robustness and the need for bias mitigation strategies. Next steps include implementing multi-digit segmentation and online deployment.",
+                duration: 30000 // 30 seconds
+            }
+        ];
+
+        async function startPresentation() {
+            if (presentationActive) {
+                // Pause presentation
+                presentationActive = false;
+                document.querySelector('.present-button').textContent = '▶️ Resume Presentation';
+                if (speechSynthesis) {
+                    speechSynthesis.pause();
+                }
+                return;
+            }
+
+            // Resume or start presentation
+            presentationActive = true;
+            document.querySelector('.present-button').textContent = '⏸️ Pause Presentation';
+            document.body.classList.add('presentation-mode');
+            document.getElementById('timingIndicator').style.display = 'block';
+
+            if (startTime === 0) {
+                // First time starting - initialize everything
+                startTime = Date.now();
+                timerInterval = setInterval(updateTimer, 1000);
+
+                // Initialize Google Gemini AI
+                window.geminiAI = null;
+                try {
+                    // Load API key from environment variable or fallback
+                    const apiKey = window.ENV?.GOOGLE_CLOUD_API_KEY || 'your-gemini-api-key-here';
+
+                    if (apiKey && apiKey !== 'your-gemini-api-key-here') {
+                        // Initialize Gemini AI client and get the generative model
+                        const client = new window.GoogleGenerativeAI({ apiKey: apiKey });
+                        window.geminiAI = client.getGenerativeModel({ model: 'gemini-pro' });
+                        console.log('Gemini AI GenerativeModel initialized successfully!');
+                    } else {
+                        console.log('No valid API key found, using browser TTS');
+                    }
+                } catch (e) {
+                    console.log('Gemini AI not available, using browser TTS:', e);
+                }
+
+                await presentSection(0, window.geminiAI);
+            } else {
+                // Resuming - continue from current section
+                if (speechSynthesis && speechSynthesis.paused) {
+                    speechSynthesis.resume();
+                } else {
+                    // If no speech synthesis or not paused, continue with next section
+                    const nextSection = currentSection < presentationSections.length - 1 ? currentSection + 1 : 0;
+                    await presentSection(nextSection, window.geminiAI || null);
+                }
+            }
+        }
+
+        function stopPresentation() {
+            presentationActive = false;
+            document.querySelector('.present-button').textContent = '▶️ Resume Presentation';
+            document.body.classList.remove('presentation-mode');
+            document.getElementById('timingIndicator').style.display = 'none';
+
+            if (speechSynthesis) {
+                speechSynthesis.cancel();
+            }
+        }
+
+        async function presentSection(sectionIndex, ttsClient = null) {
+            if (!presentationActive || sectionIndex >= presentationSections.length) {
+                stopPresentation();
+                return;
+            }
+
+            const section = presentationSections[sectionIndex];
+            const element = document.querySelector(section.element);
+
+            if (element) {
+                // Scroll to section with smooth animation
+                element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+                // Add active class for highlight animation
+                element.classList.add('active');
+
+                // Wait for scroll to complete
+                await new Promise(resolve => setTimeout(resolve, 1000));
+
+                // Remove active class after animation
+                setTimeout(() => element.classList.remove('active'), 1000);
+
+                // Speak the voice script using Gemini AI if available
+                if (ttsClient) {
+                    try {
+                        console.log('Using Gemini AI for enhanced presentation...');
+
+                        // Use Gemini to enhance the voice script (make it more natural)
+                        const enhancedPrompt = `Please rewrite this presentation text to sound more natural and engaging for a human presenter: "${section.voiceScript}"`;
+
+                        // Use Gemini to enhance the text
+                        const response = await ttsClient.generateContent({
+                            contents: [{
+                                role: "user",
+                                parts: [{ text: enhancedPrompt }]
+                            }]
+                        });
+
+                        const result = response.response;
+                        const enhancedText = result.text();
+
+                        console.log('Gemini enhanced text:', enhancedText);
+
+                        // Speak the enhanced text using browser TTS
+                        const utterance = new SpeechSynthesisUtterance(enhancedText || section.voiceScript);
+
+                        // Configure for natural, human-like English male voice
+                        utterance.rate = 0.85; // Slightly slower than default for more natural pace
+                        utterance.pitch = 0.8; // Lower pitch for male voice
+                        utterance.volume = 0.9; // Slightly louder for better clarity
+
+                        // Try to find the best English male voice available
+                        const voices = speechSynthesis.getVoices();
+                        const englishMaleVoice = voices.find(voice =>
+                            voice.lang.startsWith('en') &&
+                            (voice.name.toLowerCase().includes('male') ||
+                             voice.name.toLowerCase().includes('david') ||
+                             voice.name.toLowerCase().includes('alex') ||
+                             voice.name.toLowerCase().includes('daniel') ||
+                             voice.name.toLowerCase().includes('english') ||
+                             voice.name.toLowerCase().includes('us') ||
+                             voice.name.toLowerCase().includes('uk'))
+                        );
+
+                        if (englishMaleVoice) {
+                            utterance.voice = englishMaleVoice;
+                            console.log('Using voice:', englishMaleVoice.name);
+                        } else {
+                            // Fallback to any English voice
+                            const englishVoice = voices.find(voice => voice.lang.startsWith('en'));
+                            if (englishVoice) {
+                                utterance.voice = englishVoice;
+                                console.log('Using fallback English voice:', englishVoice.name);
+                            }
+                        }
+
+                        // Wait for speech to complete
+                        utterance.onend = function() {
+                            currentSection = sectionIndex; // Update current section
+                            if (presentationActive) {
+                                const nextIndex = sectionIndex + 1;
+                                const client = ttsClient; // Capture in closure
+                                setTimeout(function() {
+                                    presentSection(nextIndex, client);
+                                }, 1000);
+                            }
+                        };
+
+                        speechSynthesis.speak(utterance);
+
+                    } catch (e) {
+                        console.log('Gemini API failed, falling back to browser TTS:', e);
+                        fallbackToBrowserTTS(section, sectionIndex, ttsClient);
+                    }
+                } else {
+                    // Fallback to browser TTS
+                    fallbackToBrowserTTS(section, sectionIndex, ttsClient);
+                }
+            }
+        }
+
+        function fallbackToBrowserTTS(section, sectionIndex, geminiAI) {
+            if (speechSynthesis) {
+                const utterance = new SpeechSynthesisUtterance(section.voiceScript);
+
+                // Configure for natural, human-like English male voice
+                utterance.rate = 0.85; // Slightly slower than default for more natural pace
+                utterance.pitch = 0.8; // Lower pitch for male voice
+                utterance.volume = 0.9; // Slightly louder for better clarity
+
+                // Try to find the best English male voice available
+                const voices = speechSynthesis.getVoices();
+                const englishMaleVoice = voices.find(voice =>
+                    voice.lang.startsWith('en') &&
+                    (voice.name.toLowerCase().includes('male') ||
+                     voice.name.toLowerCase().includes('david') ||
+                     voice.name.toLowerCase().includes('alex') ||
+                     voice.name.toLowerCase().includes('daniel') ||
+                     voice.name.toLowerCase().includes('english') ||
+                     voice.name.toLowerCase().includes('us') ||
+                     voice.name.toLowerCase().includes('uk'))
+                );
+
+                if (englishMaleVoice) {
+                    utterance.voice = englishMaleVoice;
+                    console.log('Using voice:', englishMaleVoice.name);
+                } else {
+                    // Fallback to any English voice
+                    const englishVoice = voices.find(voice => voice.lang.startsWith('en'));
+                    if (englishVoice) {
+                        utterance.voice = englishVoice;
+                        console.log('Using fallback English voice:', englishVoice.name);
+                    }
+                }
+
+                // Wait for speech to complete - use closure to capture client
+                utterance.onend = function() {
+                    const nextIndex = sectionIndex + 1;
+                    const client = geminiAI; // Capture in closure
+                    setTimeout(function() {
+                        presentSection(nextIndex, client);
+                    }, 1000);
+                };
+
+                speechSynthesis.speak(utterance);
+            } else {
+                // Fallback: just wait for the duration
+                const nextIndex = sectionIndex + 1;
+                const client = geminiAI; // Capture in closure
+                setTimeout(function() {
+                    presentSection(nextIndex, client);
+                }, section.duration);
+            }
+        }
+
+        function updateTimer() {
+            const elapsed = Date.now() - startTime;
+            const minutes = Math.floor(elapsed / 60000);
+            const seconds = Math.floor((elapsed % 60000) / 1000);
+            const currentTime = `${minutes}:${seconds.toString().padStart(2, '0')}`;
+
+            document.getElementById('currentTime').textContent = currentTime;
+
+            // Auto-stop at 5 minutes
+            if (elapsed >= 300000) {
+                stopPresentation();
+            }
+        }
+
+        // Stop presentation when page is unloaded
+        window.addEventListener('beforeunload', stopPresentation);
+
+        // Dark mode toggle function
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+            const themeButton = document.querySelector('.theme-toggle');
+            themeButton.textContent = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
+            localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
+        }
+
+        // Load dark mode preference and initialize voices on page load
+        window.addEventListener('load', () => {
+            const darkMode = localStorage.getItem('darkMode') === 'true';
+            if (darkMode) {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.theme-toggle').textContent = '☀️';
+            }
+
+            // Initialize speech synthesis voices (needed for voice selection)
+            if (speechSynthesis) {
+                speechSynthesis.getVoices(); // Load voices
+
+                // Some browsers load voices asynchronously
+                speechSynthesis.onvoiceschanged = () => {
+                    speechSynthesis.getVoices();
+                };
+            }
+        });
+    </script>
+
+    <footer id="appendix">
+        <div class="container">
+            <h2>Appendix</h2>
+            <p>
+                <strong>GitHub Repo:</strong>
+                <a href="https://github.com/PLP-Academy/ai_se_week2_assignment_ai_tools.git" target="_blank"
+                    rel="noopener">Project Repository</a>
+            </p>
+        </div>
+    </footer>
+</body>
+
+</html>
