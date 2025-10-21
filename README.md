@@ -1,6 +1,6 @@
 # 🤖 AI Software Engineering Week 3 Assignment
 
-[![Presentation](https://img.shields.io/badge/🎬%20View%20Presentation-blue?style=for-the-badge&logo=github)](https://plp-academy.github.io/ai_se_week2_assignment_ai_tools/)
+[![Presentation](https://img.shields.io/badge/🎬%20Open%20The%20Open%20Project%20Open%20Presentation-blue?style=for-the-badge&logo=github)](https://plp-academy.github.io/ai_se_week2_assignment_ai_tools/)
 
 ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
 ![TensorFlow](https://img.shields.io/badge/TensorFlow-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white)
