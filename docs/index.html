@@ -637,9 +637,9 @@ model.fit(X_train, y_train)</code></pre>
                     app development.
                 </p>
                 <div class="code">
-                    <p>Buggy Code Snippet (from `app.py`):</p>
+                    <p>Buggy Code Snippet (from `index.py`):</p>
                     <pre><code>image = tf.image.resize(image, (28, 28)) # Wrong: passes dict directly</code></pre>
-                    <p>Fixed Code Snippet (from `app.py`):</p>
+                    <p>Fixed Code Snippet (from `index.py`):</p>
                     <pre><code>composite_image = image['composite'] # Properly extract image array
 # ... further processing ...</code></pre>
                 </div>
@@ -715,7 +715,7 @@ model.fit(X_train, y_train)</code></pre>
             <article>
                 <p>
                     To run mnist_app_gradio.py: Navigate to bonus/ and execute python
-                    app.py. The Gradio interface launches at http://127.0.0.1:7860 for
+                    index.py. The Gradio interface launches at http://127.0.0.1:7860 for
                     live digit classification.
                 </p>
                 <img src="gradio_demo.png" alt="Gradio app demo" />
@@ -782,7 +782,7 @@ model.fit(X_train, y_train)</code></pre>
             },
             {
                 element: '#bonus',
-                voiceScript: "The bonus deployment uses Gradio to create a live digit classifier. Navigate to the bonus folder and run python app.py to launch the interface at http://127.0.0.1:7860 for live digit classification.",
+                voiceScript: "The bonus deployment uses Gradio to create a live digit classifier. Navigate to the bonus folder and run python index.py to launch the interface at http://127.0.0.1:7860 for live digit classification.",
                 duration: 20000 // 20 seconds
             },
             {

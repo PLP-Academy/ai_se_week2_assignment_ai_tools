@@ -106,7 +106,7 @@ Each component demonstrates real-world applications, from classifying iris flowe
 │   ├── 📁 tensorflow/mnist_cnn.ipynb
 │   └── 📁 spacy/nlp_spacy.ipynb
 ├── 📁 bonus/
-│   ├── app.py (Gradio interface)
+│   ├── index.py (Gradio interface)
 │   └── mnist_cnn_improved_model.h5
 ├── 📁 docs/
 │   ├── presentation.html (Interactive slideshow)
@@ -164,7 +164,7 @@ Each component demonstrates real-world applications, from classifying iris flowe
 2. **Install Dependencies:** `pip install -r requirements.txt`
 3. **Run Notebooks:** Execute `.ipynb` files in Jupyter
 4. **View Presentation:** Open `docs/presentation.html` in browser
-5. **Try Gradio App:** `python bonus/app.py`
+5. **Try Gradio App:** `python bonus/index.py`
 
 ### **Prerequisites**
 - Python 3.8+
