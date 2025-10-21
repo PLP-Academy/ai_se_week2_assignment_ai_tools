@@ -207,19 +207,8 @@ This assignment demonstrates the complete **AI development lifecycle**:
 
 ---
 
-## 🙏 Acknowledgments
+## Resources
 
-**Author:** George Wanjohi
-**Institution:** PLP Academy
-**Focus:** AI Software Engineering Excellence
-
-*"Bridging the gap between theoretical AI concepts and practical, deployable solutions"*
-
----
-
-## 📞 Contact & Resources
-
-- **📧 Email:** george.wanjohi@plpacademy.ac.ke
 - **🌐 Presentation:** [View Interactive Slideshow](https://plp-academy.github.io/ai_se_week2_assignment_ai_tools/) (opens in new tab)
 - **💻 Repository:** [GitHub Source Code](https://github.com/PLP-Academy/ai_se_week2_assignment_ai_tools.git)
 - **📖 Documentation:** Comprehensive inline comments and docstrings
