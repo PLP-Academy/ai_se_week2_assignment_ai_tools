@@ -1,4 +1,0 @@
-gradio
-tensorflow-cpu==2.13.0
-numpy
-Pillow

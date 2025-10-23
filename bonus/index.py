@@ -1,5 +1,5 @@
-import gradio as gr  # type: ignore
-import tensorflow as tf  # type: ignore
+import gradio as gr
+import tensorflow as tf
 import numpy as np
 
 # =============================================================================
@@ -109,7 +109,11 @@ iface = gr.Interface(
 # =============================================================================
 # The 'launch()' method starts the web server for the Gradio app.
 # It will typically open in your default browser at a local URL (e.g., http://127.0.0.1:7860).
+
 if __name__ == "__main__":
-    print("\n🚀 Launching Gradio application...")
+    print("\n🚀 Launching Gradio application locally...")
     print("Please wait for the local URL to appear in your terminal.")
-    iface.launch(share=False) # Set share=True to get a public link (optional, for sharing)
+    iface.launch(share=True) # Set share=True to get a public link (optional, for sharing)
+
+# For Vercel serverless deployment, expose the FastAPI ASGI app
+app = iface.server_app
