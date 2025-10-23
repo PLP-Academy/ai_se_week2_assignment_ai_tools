@@ -159,7 +159,6 @@ Each component demonstrates real-world applications, from classifying iris flowe
 - ✅ **Documentation:** Clear code comments and explanations
 - ✅ **Presentation:** Engaging technical communication
 - ✅ **Ethics:** Bias mitigation and responsible AI
-
 ---
 
 ## 🚀 Getting Started

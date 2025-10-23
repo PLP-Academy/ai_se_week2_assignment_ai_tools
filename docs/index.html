@@ -902,34 +902,20 @@ model.fit(X_train, y_train)</code></pre>
                         // Speak the enhanced text using browser TTS
                         const utterance = new SpeechSynthesisUtterance(enhancedText || section.voiceScript);
 
-                        // Configure for natural, human-like English male voice
-                        utterance.rate = 0.85; // Slightly slower than default for more natural pace
-                        utterance.pitch = 0.8; // Lower pitch for male voice
-                        utterance.volume = 0.9; // Slightly louder for better clarity
+                        // Configure for natural, human-like English male voice with default settings
+                        utterance.rate = 1.0; // Default natural speaking rate
+                        utterance.pitch = 1.0; // Default pitch for natural tone
+                        utterance.volume = 1.0; // Default volume
 
-                        // Try to find the best English male voice available
+                        // Use only Google UK English Male voice
                         const voices = speechSynthesis.getVoices();
-                        const englishMaleVoice = voices.find(voice =>
-                            voice.lang.startsWith('en') &&
-                            (voice.name.toLowerCase().includes('male') ||
-                             voice.name.toLowerCase().includes('david') ||
-                             voice.name.toLowerCase().includes('alex') ||
-                             voice.name.toLowerCase().includes('daniel') ||
-                             voice.name.toLowerCase().includes('english') ||
-                             voice.name.toLowerCase().includes('us') ||
-                             voice.name.toLowerCase().includes('uk'))
-                        );
+                        const googleUKMaleVoice = voices.find(voice => voice.name === "Google UK English Male");
 
-                        if (englishMaleVoice) {
-                            utterance.voice = englishMaleVoice;
-                            console.log('Using voice:', englishMaleVoice.name);
+                        if (googleUKMaleVoice) {
+                            utterance.voice = googleUKMaleVoice;
+                            console.log('Using voice:', googleUKMaleVoice.name);
                         } else {
-                            // Fallback to any English voice
-                            const englishVoice = voices.find(voice => voice.lang.startsWith('en'));
-                            if (englishVoice) {
-                                utterance.voice = englishVoice;
-                                console.log('Using fallback English voice:', englishVoice.name);
-                            }
+                            console.log('Google UK English Male voice not available');
                         }
 
                         // Wait for speech to complete
@@ -961,34 +947,20 @@ model.fit(X_train, y_train)</code></pre>
             if (speechSynthesis) {
                 const utterance = new SpeechSynthesisUtterance(section.voiceScript);
 
-                // Configure for natural, human-like English male voice
-                utterance.rate = 0.85; // Slightly slower than default for more natural pace
-                utterance.pitch = 0.8; // Lower pitch for male voice
-                utterance.volume = 0.9; // Slightly louder for better clarity
+                // Configure for natural, human-like English male voice with default settings
+                utterance.rate = 1.0; // Default natural speaking rate
+                utterance.pitch = 1.0; // Default pitch for natural tone
+                utterance.volume = 1.0; // Default volume
 
-                // Try to find the best English male voice available
+                // Use only Google UK English Male voice
                 const voices = speechSynthesis.getVoices();
-                const englishMaleVoice = voices.find(voice =>
-                    voice.lang.startsWith('en') &&
-                    (voice.name.toLowerCase().includes('male') ||
-                     voice.name.toLowerCase().includes('david') ||
-                     voice.name.toLowerCase().includes('alex') ||
-                     voice.name.toLowerCase().includes('daniel') ||
-                     voice.name.toLowerCase().includes('english') ||
-                     voice.name.toLowerCase().includes('us') ||
-                     voice.name.toLowerCase().includes('uk'))
-                );
+                const googleUKMaleVoice = voices.find(voice => voice.name === "Google UK English Male");
 
-                if (englishMaleVoice) {
-                    utterance.voice = englishMaleVoice;
-                    console.log('Using voice:', englishMaleVoice.name);
+                if (googleUKMaleVoice) {
+                    utterance.voice = googleUKMaleVoice;
+                    console.log('Using voice:', googleUKMaleVoice.name);
                 } else {
-                    // Fallback to any English voice
-                    const englishVoice = voices.find(voice => voice.lang.startsWith('en'));
-                    if (englishVoice) {
-                        utterance.voice = englishVoice;
-                        console.log('Using fallback English voice:', englishVoice.name);
-                    }
+                    console.log('Google UK English Male voice not available');
                 }
 
                 // Wait for speech to complete - use closure to capture client
