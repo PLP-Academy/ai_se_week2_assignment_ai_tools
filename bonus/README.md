@@ -66,7 +66,7 @@ Pillow = "*"
 📁 bonus/
 ├── 📄 index.py                    # Main Gradio application
 ├── 📄 mnist_cnn_improved_model.h5 # Trained CNN model
-├── 📄 requirements.txt            # Python dependencies
+├── 📄 pyproject.toml              # Python dependencies (Poetry)
 ├── 📄 vercel.json                 # Vercel deployment config
 └── 📄 README.md                   # This file
 ```
@@ -141,7 +141,8 @@ The app automatically loads the pre-trained model:
 **Import Errors:**
 ```bash
 # Ensure all dependencies are installed
-pip install -r requirements.txt
+pip install poetry
+poetry install
 ```
 
 ## 📊 Performance
