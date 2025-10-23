@@ -4,6 +4,10 @@
 
 [![Presentation](https://img.shields.io/badge/🎬%20Open%20The%20Project%20Presentation-blue?style=for-the-badge&logo=github)](https://plp-academy.github.io/ai_se_week3_assignment_ai_tools/)
 
+**🤖 Try the Live ML Demo:**
+
+[![Live Demo](https://img.shields.io/badge/🤖%20Try%20Live%20MNIST%20Classifier-green?style=for-the-badge&logo=huggingface)](https://kkweli-plp-machine-learning.hf.space/?__theme=system&deep_link=uB5Z5HkoG8k)
+
 ## 🛠 Technology Stack
 
 ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
@@ -89,7 +93,7 @@ Each component demonstrates real-world applications, from classifying iris flowe
 - **Responsive Design:** Works perfectly on desktop and mobile
 
 ### **Gradio Deployment** 🌐
-- **Live Demo:** Web interface for MNIST digit classification
+- **[Live Demo](https://kkweli-plp-machine-learning.hf.space/?__theme=system&deep_link=uB5Z5HkoG8k):** Web interface for MNIST digit classification
 - **Real-time Prediction:** Draw digits and get instant results
 - **Model Integration:** Uses the trained CNN for accurate predictions
 - **User-friendly UI:** Simple sketchpad interface
@@ -106,8 +110,9 @@ Each component demonstrates real-world applications, from classifying iris flowe
 │   ├── 📁 tensorflow/mnist_cnn.ipynb
 │   └── 📁 spacy/nlp_spacy.ipynb
 ├── 📁 bonus/
-│   ├── index.py (Gradio interface)
-│   └── mnist_cnn_improved_model.h5
+│   ├── app.py (Gradio interface)
+│   ├── mnist_cnn_improved_model.h5
+│   └── requirements.txt (exported dependencies)
 ├── 📁 docs/
 │   ├── presentation.html (Interactive slideshow)
 │   ├── env-loader.js (API key management)
@@ -164,7 +169,7 @@ Each component demonstrates real-world applications, from classifying iris flowe
 2. **Install Dependencies:** `pip install -r requirements.txt`
 3. **Run Notebooks:** Execute `.ipynb` files in Jupyter
 4. **View Presentation:** Open `docs/presentation.html` in browser
-5. **Try Gradio App:** `python bonus/index.py`
+5. **Try Gradio App:** `python bonus/app.py` or **[Live Demo](https://kkweli-plp-machine-learning.hf.space/?__theme=system&deep_link=uB5Z5HkoG8k)**
 
 ### **Prerequisites**
 - Python 3.8+
@@ -200,6 +205,7 @@ This assignment demonstrates the complete **AI development lifecycle**:
 ## Resources
 
 - **🌐 Presentation:** [View Interactive Slideshow](https://plp-academy.github.io/ai_se_week3_assignment_ai_tools/) (opens in new tab)
+- **🤖 Live ML Demo:** [MNIST Digit Classifier](https://kkweli-plp-machine-learning.hf.space/?__theme=system&deep_link=uB5Z5HkoG8k) (Hugging Face Spaces)
 - **💻 Repository:** [GitHub Source Code](https://github.com/PLP-Academy/ai_se_week2_assignment_ai_tools.git)
 - **📖 Documentation:** Comprehensive inline comments and docstrings
 
