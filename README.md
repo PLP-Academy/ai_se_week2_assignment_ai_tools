@@ -2,7 +2,7 @@
 
 **🎬 Access the project presentation here:**
 
-[![Presentation](https://img.shields.io/badge/🎬%20Open%20The%20Project%20Presentation-blue?style=for-the-badge&logo=github)](https://plp-academy.github.io/ai_se_week2_assignment_ai_tools/)
+[![Presentation](https://img.shields.io/badge/🎬%20Open%20The%20Project%20Presentation-blue?style=for-the-badge&logo=github)](https://plp-academy.github.io/ai_se_week3_assignment_ai_tools/)
 
 ## 🛠 Technology Stack
 
@@ -197,19 +197,9 @@ This assignment demonstrates the complete **AI development lifecycle**:
 
 ---
 
-## 🔮 Future Enhancements
-
-- **Multi-digit Recognition:** Extend MNIST for number sequences
-- **Advanced NLP:** Transformer-based sentiment analysis
-- **Cloud Deployment:** Online Gradio interface
-- **Mobile App:** React Native digit classifier
-- **Real-time Video:** Live handwriting recognition
-
----
-
 ## Resources
 
-- **🌐 Presentation:** [View Interactive Slideshow](https://plp-academy.github.io/ai_se_week2_assignment_ai_tools/) (opens in new tab)
+- **🌐 Presentation:** [View Interactive Slideshow](https://plp-academy.github.io/ai_se_week3_assignment_ai_tools/) (opens in new tab)
 - **💻 Repository:** [GitHub Source Code](https://github.com/PLP-Academy/ai_se_week2_assignment_ai_tools.git)
 - **📖 Documentation:** Comprehensive inline comments and docstrings
 

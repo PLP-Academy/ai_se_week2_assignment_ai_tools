@@ -12,7 +12,7 @@ try:
     print("✅ MNIST CNN model loaded successfully!")
 except Exception as e:
     print(f"❌ Error loading model: {e}")
-    print("Please ensure 'mnist_cnn_model.h5' exists and is a valid Keras model.")
+    print("Please ensure 'mnist_cnn_improved_model.h5' exists and is a valid Keras model.")
     # Exit or handle the error appropriately if the model is crucial for the app
     exit()
 
@@ -64,8 +64,9 @@ def classify_digit(image):
     predictions = model.predict(image_reshaped)[0] # Get probabilities for the single image
 
     # Check if it's likely not a digit (max confidence < threshold)
+    MAX_CONFIDENCE_THRESHOLD = 0.1 # Define threshold as a constant
     max_conf = np.max(predictions)
-    if max_conf < 0.1:  # Threshold for low confidence
+    if max_conf < MAX_CONFIDENCE_THRESHOLD:  # Threshold for low confidence
         return {"Not a digit": 1.0}  # Return special output for non-digits
 
     # Format predictions for Gradio output
